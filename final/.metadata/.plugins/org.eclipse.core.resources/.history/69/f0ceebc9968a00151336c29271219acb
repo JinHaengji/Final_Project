@@ -10,7 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Main
 {
-	public static void main(String[] args) throws IOException, UnsupportedAudioFileException
+	public static void main(String[] args)
 	{
 		//1. wav -> flac 파일 변환 
 		Convert convert = new Convert();
