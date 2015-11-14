@@ -1,0 +1,17 @@
+package convert;
+
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
+public class Convert {
+
+	public static void main(String[] args)
+	{
+		File inputFile = new File("C:\\hello.wav");
+	      AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(inputFile);
+	      AudioSystem.write(audioInputStream, FLACFileWriter.FLAC, new File("C:\\temp.flac"));
+	}
+
+}

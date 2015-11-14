@@ -1,0 +1,59 @@
+package speech_api;
+
+public class Split 
+{
+	public static String lengthLimit(String inputStr, int limit, String fixStr) 
+	{
+        if (inputStr == null)
+            return "";
+
+        if (limit <= 0)
+            return inputStr;
+
+        byte[] strbyte = null;
+
+        strbyte = inputStr.getBytes();
+
+
+        if (strbyte.length <= limit) 
+        {
+            return inputStr;
+        }
+
+        char[] charArray = inputStr.toCharArray();
+
+        int checkLimit = limit;
+        for ( int i = 0 ; i < charArray.length ; i++ ) 
+        {
+            if (charArray[i] < 256) 
+            {
+                checkLimit -= 1;
+            }
+            else
+            {
+                checkLimit -= 2;
+            }
+            if (checkLimit <= 0) 
+            {
+                break;
+            }
+        }
+
+        //대상 문자열 마지막 자리가 2바이트의 중간일 경우 제거함
+        byte[] newByte = new byte[limit + checkLimit];
+
+        for ( int i = 0 ; i < newByte.length ; i++ ) 
+        {
+            newByte[i] = strbyte[i];
+        }
+
+        if (fixStr == null)
+        {
+            return new String(newByte);
+        }
+        else
+        {
+            return new String(newByte) + fixStr;
+        }
+    }
+}

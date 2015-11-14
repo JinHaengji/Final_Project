@@ -1,0 +1,70 @@
+package speech_api;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class STT
+{
+	public STT()
+	{
+		URL url;
+		String key = "AIzaSyDXvTfW775bucO4mcVMB03m3xCB7K4ayfc";
+		 String urlString = "https://www.google.com/speech-api/v2/recognize?output=json&lang=en-US&" + key;
+		    try 
+		    {
+			    url = new URL(urlString);
+			    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			    StringBuilder stringBuilder;
+	
+			    connection.setDefaultUseCaches(true);
+			    connection.setConnectTimeout(20000);
+			    connection.setReadTimeout(60000);
+			    connection.setDoInput(true);
+			    connection.setDoOutput(true);
+			    connection.setInstanceFollowRedirects(true);
+			    connection.setRequestMethod("POST");
+			    connection.setRequestProperty("Content-Type", "audio/x-flac;rate=44100");
+	
+			    /*Write the audio on bufferI/O*/
+			    File file = new File("C:/Travail/audio/good-morning-google.flac");
+			    byte[] buffer = new byte[(int) file.length()];
+			    FileInputStream fis = new FileInputStream(file);
+			    fis.read(buffer);
+			    fis.close();
+			    OutputStream os = connection.getOutputStream();
+			    os.write(buffer);
+			    os.close();
+	
+			    connection.connect();
+			    System.out.println("connect to google server!");
+			    connection.getResponseMessage();
+			    System.out.println("receive the reponse!");
+			    InputStreamReader inputStreamReader = new InputStreamReader(connection.getInputStream(), "UTF-8");
+			    BufferedReader br = new BufferedReader(inputStreamReader);
+	
+			    stringBuilder = new StringBuilder();
+			    String line = null;
+			      while ((line = br.readLine()) != null)
+			      {
+			        stringBuilder.append(line + "\n");
+			      }
+			      System.out.println(stringBuilder);
+			     // JSONObject jsonResponse = new JSONObject(stringBuilder.toString());
+		}
+		  catch (MalformedURLException e)
+		    {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		} catch (IOException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		}
+	}
+}

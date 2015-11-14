@@ -1,0 +1,10 @@
+package speech_api;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		STT stt = new STT();
+	}
+
+}
