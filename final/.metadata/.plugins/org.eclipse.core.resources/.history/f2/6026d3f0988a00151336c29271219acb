@@ -1,0 +1,20 @@
+package speech_api;
+
+import java.io.File;
+import java.io.IOException;
+
+import javaFlacEncoder.FLACFileWriter;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+public class Convert
+{
+	public Convert() throws IOException, UnsupportedAudioFileException
+	{
+		File inputFile = new File("D://¡π¿€//file//wav//test5_1114.wav");
+	    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(inputFile);
+	    AudioSystem.write(audioInputStream, FLACFileWriter.FLAC, new File("D://¡π¿€//file//flac//temp5_1114.flac"));
+	}
+}

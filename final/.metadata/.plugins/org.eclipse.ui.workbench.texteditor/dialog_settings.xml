@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="wav"/>
 			<item value="result"/>
 			<item value="t_encodeSamples"/>
 			<item value="main"/>

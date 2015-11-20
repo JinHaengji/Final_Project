@@ -1,0 +1,13 @@
+package sound;
+
+//1번. wav 파일을 10초 단위의 wav파일로 split
+public class CuttingFile 
+{
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}

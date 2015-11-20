@@ -1,0 +1,5 @@
+package speech_api;
+
+public class CuttingFile {
+	public static void main(String[] args) {}
+}

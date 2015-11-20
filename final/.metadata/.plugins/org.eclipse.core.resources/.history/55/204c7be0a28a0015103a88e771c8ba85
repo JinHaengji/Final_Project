@@ -1,0 +1,62 @@
+import java.io.File;
+
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
+
+public class Cuttingfile2 {
+
+	public static void main(String[] args)
+	{
+		int count2 = 0;
+		  int totalFramesRead = 0;
+		        //cap contains the how many wav's are to be made
+		        //counter contains the vector position.
+		        String wavFile1 = "C:\\Users\\DC3\\Desktop\\wav&text\\testwav.wav";
+		            //String wavFile2 = "C:\\Users\\DC3\\Desktop\\waver\\Battlefield.wav";
+		            while(count2 != counter){
+		            try {
+		                    AudioInputStream clip1 = AudioSystem.getAudioInputStream(new File(wavFile1));
+		                    int bytesPerFrame = clip1.getFormat().getFrameSize();
+		                    //System.out.println(bytesPerFrame);
+//		                     int numBytes = safeLongToInt(clip1.getFrameLength()) * bytesPerFrame; 
+//		                     byte[] audioBytes = new byte[numBytes];
+//		                     int numBytesRead = 0;
+//		                     int numFramesRead = 0;
+//		                     // Try to read numBytes bytes from the file.
+//		                     while ((numBytesRead = 
+//		                       clip1.read(audioBytes)) != -1) {
+//		                       // Calculate the number of frames actually read.
+//		                       clip1.read(audioBytes)
+//		                       numFramesRead = numBytesRead / bytesPerFrame;
+//		                       totalFramesRead += numFramesRead;
+//		                       System.out.println(totalFramesRead);
+//		                     }
+
+		                    long lengthofclip = Integer.parseInt(time.get(count2))- silence;
+
+		                    globallength = clip1.getFrameLength();
+		                    AudioInputStream appendedFiles = new AudioInputStream(clip1, clip1.getFormat(), lengthofclip);
+		                    //long test = (appendedFiles.getFrameLength() *24 *2)/8;
+		                    //int aaaaa = safeLongToInt(test);
+		                    //appendedFiles.mark(aaaaa);
+		                    AudioSystem.write(appendedFiles, 
+		                            AudioFileFormat.Type.WAVE, 
+		                            new File("C:\\Users\\DC3\\Desktop\\wav&text\\" + name.get(count2)));
+		                            count2++;
+		            } catch (Exception e) {
+		                    e.printStackTrace();
+		            }
+		        }
+		  }
+		  public static int safeLongToInt(long l) {
+		    if (l < Integer.MIN_VALUE || l > Integer.MAX_VALUE) {
+		        throw new IllegalArgumentException
+		            (l + " cannot be cast to int without changing its value.");
+		    }
+		    return (int) l;
+		}
+	}
+
+}
