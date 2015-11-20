@@ -20,9 +20,9 @@ public class CuttingFile
 		
 		String type_w = ".wav";
 		String type_f = ".flac";
-		String path = "D://¡π¿€//file//wav//test6_1114";
-		String path_w = "D://¡π¿€//file//wav//test6_1114" + type_w;
-		String path_f = "D://¡π¿€//file//flac//test6_1114";
+		String path = "D:\\file\\divide\\test6_1114";
+		String path_w = "D:\\file\\divide\\test6_1114" + type_w;
+		String path_f = "D:\\file\\divide\\flac\\test6_1114";
 	
 		//test6_1114.wav : 28√  
 		int totaltime = 0;
